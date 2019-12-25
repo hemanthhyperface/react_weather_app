@@ -1,0 +1,19 @@
+import React from 'react';
+class Search extends React.Component {
+    render() {
+        return (
+            <div className="search">
+            <div className="col">
+            <h4> WEATHER SEARCH</h4>
+            <label>enter city name</label>
+            <form onSubmit={this.props.submit}>
+               <input className="hello form-control"  type="text"  value={this.props.value} onChange={this.props.change}></input> <br/>
+               <button type="submit" className="btn btn-primary">Submit</button>
+              </form>
+</div>
+            </div>
+        );
+    }
+}
+
+export default Search;
