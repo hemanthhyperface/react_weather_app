@@ -14,15 +14,19 @@ class Player extends React.Component {
         else {
             return (
 
-
+               
+                
                 <div className="player">
-
-                    <h5 className="text-center pname" >{this.props.value}</h5>
-
-                    <img className="picture" src={this.props.image} alt=""></img>
-                    <p className="text-center bowlstyle">{this.props.result.description} </p>
-
+                {this.props.value ?  <>
+                    <h5 className="text-center text-capitalize text-lg pname" >{this.props.value}</h5>
+                    <img className="picture" height="50" width="50" src={this.props.image} alt=""></img>
+                    <p className="text-center text-capitalize bowlstyle">{this.props.result.description} </p>
+                    </>
+                    : <h4 className="text-center">----</h4>
+                }
                 </div>
+              
+               
 
             )
         }
