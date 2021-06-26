@@ -8,7 +8,7 @@ class Search extends React.Component {
             <label>Enter city name</label>
             <form onSubmit={this.props.submit}>
                <input className="hello form-control"  type="text"  value={this.props.value} onChange={this.props.change}></input> <br/>
-               <button type="submit" className="btn btn-primary btn-block">Submit</button>
+               <button type="submit" className="btn btn-primary btn-block">{this.props.loading?'---':"Submit"}</button>
               </form>
 </div>
             </div>

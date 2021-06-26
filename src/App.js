@@ -13,6 +13,7 @@ class Module extends React.Component {
       submit: '',
       weather: [],
       isLoaded: false,
+      loading: false,
       error: null,
       image: ''
 
@@ -35,13 +36,14 @@ class Module extends React.Component {
 }
   getInfo = () => {
     const vars = this.state.value;
-   
+    this.setState({loading: true})
 
     Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${vars}&appid=8bcaee364dd25e6ab4318dce38808245`)
       .then(result => this.setState({
         weather: result.data.weather[0],
         image:`http://openweathermap.org/img/w/${result.data.weather[0].icon}.png`,
         isLoaded: true,
+        loading: false,
         error:null
 
       }))
@@ -54,8 +56,8 @@ class Module extends React.Component {
   
   render() {
     const loadiing = 'loading';
-    return <div>
-      <Search value={this.state.value} change={this.handleChange} submit={this.handleSubmit} />
+    return <div className="bg-blue">
+      <Search value={this.state.value} loading={this.state.loading} change={this.handleChange} submit={this.handleSubmit} />
 
      
 
